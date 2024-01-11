@@ -1,0 +1,26 @@
+{
+  "id": "full_video",
+  "type": "SharedSlice",
+  "name": "FullVideo",
+  "description": "FullVideo",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "background_video": {
+          "type": "Embed",
+          "config": {
+            "label": "Background Video",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
