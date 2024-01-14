@@ -11,7 +11,7 @@ import { PostCard } from "@/components/PostCard";
 import { RichText } from "@/components/RichText";
 import { Navigation } from "@/components/Navigation";
 import { getLocales } from "@/utils/getLocales";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { Comments } from "@/components/Comments";
 
 type Params = { uid: string; lang: string };
 
@@ -78,9 +78,9 @@ export default async function Page({ params }: { params: Params }) {
         <div className="flex flex-col items-center gap-3 w-full">
           <div className="flex flex-col gap-6 items-center">
             <p className="opacity-75 w-fit pb-1">{new Date(publication_date || "").toLocaleDateString(currentLocale?.lang || "en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
-            <div className="text-center text-2xl">
+            <h1 className="text-center">
               <RichText field={title} />
-            </div>
+            </h1>
           </div>
           <div className="text-center">
             <RichText field={description} />
@@ -92,8 +92,11 @@ export default async function Page({ params }: { params: Params }) {
       {/* Display the content of the blog post */}
       <SliceZone slices={slices} components={components} />
 
+      {/* Display the Comments section */}
+      <Comments id={page.id} uid={page.uid} />
+
       {/* Display the Recommended Posts section using the posts we requested earlier */}
-      <h2 className="text-3xl">Recommended Posts</h2>
+      <h3>Recommended Posts</h3>
       <section className="grid grid-cols-1 gap-8 max-w-3xl w-full">
         {posts.map((post) => (
           <PostCard key={post.id} post={post} locales={locales} />

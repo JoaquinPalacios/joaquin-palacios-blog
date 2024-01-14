@@ -9,24 +9,27 @@ export interface LanguageSwitcherProps {
 }
 
 const localeLabels = {
-  "en-us": "English 🇺🇸",
-  "es-ar": "Español 🇪🇸",
+  "en-us": "English",
+  "es-ar": "Español",
 };
 
 export const LanguageSwitcher = ({ locales }: LanguageSwitcherProps) => {
   return (
-    <div className="lang-switcher flex ml-auto gap-3 items-end flex-col">
-      <span className="lang-toggle" aria-hidden>
-        🌐
-      </span>
+    <div className="absolute right-0">
       <ul className="lang-items flex flex-wrap gap-3">
-        {locales.map((locale) => (
-          <li key={locale.lang} className="first:font-bold last:font-light text-sm">
-            <PrismicNextLink href={locale.url} locale={locale.lang} aria-label={`Change language to ${locale.lang_name}`}>
-              {localeLabels[locale.lang as keyof typeof localeLabels] || locale.lang}
-            </PrismicNextLink>
-          </li>
-        ))}
+        <li className="first:font-bold last:font-light text-sm">
+          <PrismicNextLink href={locales[0].url} locale={locales[0].lang} aria-label={`Change language to ${locales[0].lang_name}`}>
+            {localeLabels[locales[0].lang as keyof typeof localeLabels] || locales[0].lang}
+          </PrismicNextLink>
+        </li>
+        <span className=" text-sm" aria-hidden>
+          |
+        </span>
+        <li className="first:font-bold last:font-light text-sm">
+          <PrismicNextLink href={locales[1].url} locale={locales[1].lang} aria-label={`Change language to ${locales[1].lang_name}`}>
+            {localeLabels[locales[1].lang as keyof typeof localeLabels] || locales[1].lang}
+          </PrismicNextLink>
+        </li>
       </ul>
     </div>
   );

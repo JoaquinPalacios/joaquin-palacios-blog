@@ -24,6 +24,10 @@ h1 {
   font-size: 48px;
 }
 
+h3 {
+  font-size: 24px;
+}
+
 .home-img {
   height: unset !important;
 }
@@ -33,24 +37,4 @@ iframe {
 }
 
 .lang-switcher {
-}
-
-.lang-items {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  padding: 8px 16px;
-  transition: opacity 0.4s ease-in-out;
-}
-
-.lang-toggle:hover ~ .lang-items {
-  opacity: 1;
-  transition-delay: 0s;
-}
-
-.lang-toggle:not(:hover) ~ .lang-items {
-  opacity: 0;
-  transition-delay: 4s;
 }
